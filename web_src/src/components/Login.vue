@@ -43,18 +43,21 @@ export default {
       isLoging: false,
       showPassword: false,
       loginLoading: false,
-  		username: '',
-  		password: ''
+  		username: 'admin',
+  		password: 'admin'
   	}
   },
   created(){
-    var that = this;
-    document.onkeydown = function(e) {
-      var key = window.event.keyCode;
-      if (key == 13) {
-        that.login();
-      }
-    }
+    // var that = this;
+    // document.onkeydown = function(e) {
+    //   var key = window.event.keyCode;
+    //   if (key == 13) {
+    //     that.login();
+    //   }
+    // }
+    userService.setUser("demo")
+    //登录成功后
+    this.$router.push('/');
   },
   methods:{
 

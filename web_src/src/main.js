@@ -3,7 +3,8 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+// import 'element-ui/lib/theme-chalk/index.css';
+import '../src/components/common/theme/theme/index.css'
 import router from './router/index.js';
 import axios from 'axios';
 import VueCookies from 'vue-cookies';

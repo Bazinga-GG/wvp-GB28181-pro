@@ -55,9 +55,10 @@ export default {
     //     that.login();
     //   }
     // }
-    userService.setUser("demo")
-    //登录成功后
-    this.$router.push('/');
+    // userService.setUser("demo")
+    // //登录成功后
+    // this.$router.push('/');
+    this.toLogin();
   },
   methods:{
 

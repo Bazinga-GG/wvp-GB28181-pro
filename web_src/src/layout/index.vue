@@ -72,5 +72,6 @@ body{
 .indexPageContainerArea{
   padding: 20px;
   box-sizing: border-box;
+  width: 100%;
 }
 </style>

@@ -3,6 +3,8 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+// const targetUrl = "http://localhost:18080"
+const targetUrl = "http://114.55.176.164:18080"
 
 module.exports = {
   dev: {
@@ -12,14 +14,14 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/debug': {
-        target: 'http://localhost:18080',
+        target: targetUrl,
         changeOrigin: true,
         pathRewrite: {
           '^/debug': '/'
         }
       },
       '/static/snap': {
-        target: 'http://localhost:18080',
+        target: targetUrl,
         changeOrigin: true,
         // pathRewrite: {
         //   '^/static/snap': '/static/snap'

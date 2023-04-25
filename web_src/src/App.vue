@@ -52,7 +52,6 @@ html,
 body,
 #app {
   margin: 0 0;
-  background-color: #e9eef3;
   height: 100%;
 }
 .el-header,

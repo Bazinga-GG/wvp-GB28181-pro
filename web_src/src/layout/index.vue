@@ -6,7 +6,9 @@
     <el-main>
       <el-container>
         <transition name="fade">
-          <router-view></router-view>
+          <div class="indexPageContainerArea">
+            <router-view></router-view>
+          </div>
         </transition>
       </el-container>
     </el-main>
@@ -65,5 +67,10 @@ body{
 .fade-leave {
   visibility: visible;
   opacity: 1;
+}
+
+.indexPageContainerArea{
+  padding: 20px;
+  box-sizing: border-box;
 }
 </style>

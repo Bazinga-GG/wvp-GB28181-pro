@@ -1,8 +1,8 @@
 <template>
   <el-container style="height: 100%">
-    <el-header>
+    <el-aside style="background-color: #e6eefb;" width="200px">
       <ui-header/>
-    </el-header>
+    </el-aside>
     <el-main>
       <el-container>
         <transition name="fade">

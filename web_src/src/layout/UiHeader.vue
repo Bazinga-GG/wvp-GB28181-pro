@@ -1,8 +1,7 @@
 <template>
-  <div id="UiHeader">
+  <div id="UiHeader" class="UiHeader">
 
-    <el-menu router :default-active="activeIndex" menu-trigger="click" background-color="#001529" text-color="#fff"
-             active-text-color="#1890ff" mode="horizontal">
+    <el-menu router :default-active="activeIndex" menu-trigger="click" class="el-menu-vertical-demo">
 
       <el-menu-item index="/console">控制台</el-menu-item>
       <el-menu-item index="/live">分屏监控</el-menu-item>
@@ -22,15 +21,15 @@
       <!--              <el-menu-item index="/setting/media">媒体服务</el-menu-item>-->
       <!--            </el-submenu>-->
       <!--            <el-menu-item style="float: right;" @click="loginout">退出</el-menu-item>-->
-      <el-submenu index="" style="float: right;">
-        <template slot="title">欢迎，{{ username }}</template>
-        <el-menu-item @click="openDoc">在线文档</el-menu-item>
-        <el-menu-item>
-          <el-switch v-model="alarmNotify" inactive-text="报警信息推送" @change="alarmNotifyChannge"></el-switch>
-        </el-menu-item>
-        <el-menu-item @click="changePassword">修改密码</el-menu-item>
-        <el-menu-item @click="loginout">注销</el-menu-item>
-      </el-submenu>
+      <!--      <el-submenu index="" style="float: right;">-->
+      <!--        <template slot="title">欢迎，{{ username }}</template>-->
+      <!--        <el-menu-item @click="openDoc">在线文档</el-menu-item>-->
+      <!--        <el-menu-item>-->
+      <!--          <el-switch v-model="alarmNotify" inactive-text="报警信息推送" @change="alarmNotifyChannge"></el-switch>-->
+      <!--        </el-menu-item>-->
+      <!--        <el-menu-item @click="changePassword">修改密码</el-menu-item>-->
+      <!--        <el-menu-item @click="loginout">注销</el-menu-item>-->
+      <!--      </el-submenu>-->
     </el-menu>
     <changePasswordDialog ref="changePasswordDialog"></changePasswordDialog>
   </div>
@@ -57,6 +56,7 @@ export default {
   created() {
     console.log(4444)
     console.log(JSON.stringify(userService.getUser()))
+    this.activeIndex =  this.$route.path;
     if (this.$route.path.startsWith("/channelList")) {
       this.activeIndex = "/deviceList"
 
@@ -158,20 +158,171 @@ export default {
 
 </script>
 <style>
-#UiHeader .el-switch__label {
-  color: white;
-}
+/*#UiHeader .el-switch__label {*/
+/*  color: white;*/
+/*}*/
 
 .el-menu--popup .el-menu-item .el-switch .el-switch__label {
   color: white !important;
 }
 
-#UiHeader .el-switch__label.is-active {
-  color: #409EFF;
-}
+/*#UiHeader .el-switch__label.is-active {*/
+/*  color: #409EFF;*/
+/*}#UiHeader .el-switch__label.is-active {*/
+/*  color: #409EFF;*/
+/*}*/
 
-#UiHeader .el-menu-item.is-active {
-  color: #fff !important;
-  background-color: #1890ff !important;
+/*#UiHeader .el-menu-item.is-active {*/
+/*  color: #fff !important;*/
+/*  background-color: #1890ff !important;*/
+/*}*/
+</style>
+<style lang="less">
+
+.UiHeader {
+  width: 100%;
+  height: 100%;
+
+  .el-menu-vertical-demo {
+    background-color: @colorBgBlue;
+
+    .el-menu-item {
+
+      .sideMenuIconArea {
+        &:before {
+          color: @fontColorPrimary;
+          margin-right: 12px;
+        }
+      }
+    }
+
+    .el-sub-menu {
+
+      .sideMenuIconArea {
+        &:before {
+          color: @fontColorPrimary;
+          margin-right: 12px;
+        }
+      }
+    }
+
+    .is-active {
+      position: relative;
+
+      .el-submenu__title {
+        .sideMenuIconArea {
+          color: @color-primary;
+        }
+
+        span {
+          color: @color-primary;
+        }
+      }
+    }
+
+    .is-active:before {
+      position: absolute;
+      content: "";
+      width: 6px;
+      height: 36px;
+      display: inline-block;
+      background-color: @color-primary;
+      border-radius: 10px;
+      top: 7px;
+      left: -3px;
+      box-shadow: 2px 2px 6px @shadowColor2;
+    }
+
+    .is-opened {
+
+      .el-menu {
+
+        .el-menu-item {
+          background-color: @colorBgBlue;
+
+          &:hover {
+            background-color: @colorBgBlueHover;
+          }
+        }
+      }
+    }
+
+    .is-opened:before {
+      display: none;
+    }
+  }
+
+  .el-menu-vertical-demo > .is-active[class~='el-menu-item'] {
+    background-color: @colorBgBlueHover;
+    box-shadow: 0 0 12px rgba(123, 176, 255, 0.4);
+
+    .sideMenuIconArea {
+      &:before {
+        color: @color-primary;
+      }
+    }
+  }
+
+  .el-menu-vertical-demo > .is-active {
+
+    .el-submenu__title {
+      .sideMenuIconArea {
+        &:before {
+          color: @color-primary;
+        }
+      }
+    }
+
+    .el-menu--inline > .is-active {
+      background-color: @colorBgBlueHover;
+      box-shadow: 0 0 12px rgba(123, 176, 255, 0.4);
+      position: relative;
+      z-index: 10;
+    }
+
+  }
 }
 </style>
+
+
+<!--<style scoped>-->
+<!--.el-menu-vertical-demo {-->
+<!--  background-color: #e6eefb;-->
+<!--}-->
+
+<!--.el-menu-item .sideMenuIconArea:before {-->
+<!--   color: #272636;-->
+<!--   margin-right: 12px;-->
+<!--}-->
+
+<!--.el-sub-menu .sideMenuIconArea:before {-->
+<!--  color: #272636;-->
+<!--  margin-right: 12px;-->
+<!--}-->
+
+<!--.is-active {-->
+<!--  position: relative;-->
+<!--}-->
+
+<!--.el-submenu__title .sideMenuIconArea{-->
+<!--  color:#7BB0FF;-->
+<!--}-->
+<!--.el-submenu__title span{-->
+<!--  color: #7BB0FF;-->
+<!--}-->
+
+<!--.is-active:before {-->
+<!--  position: absolute;-->
+<!--  content: "";-->
+<!--  width: 6px;-->
+<!--  height: 36px;-->
+<!--  display: inline-block;-->
+<!--  background-color: #7BB0FF;-->
+<!--  border-radius: 10px;-->
+<!--  top: 7px;-->
+<!--  left: -3px;-->
+<!--  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);-->
+<!--}-->
+
+<!--.is-opened-->
+<!--</style>-->

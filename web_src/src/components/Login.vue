@@ -1,6 +1,6 @@
 <template>
 <div class="login" id="login">
-  <div class="limiter">
+  <div class="limiter" style="display: none">
     <div class="container-login100">
       <div class="wrap-login100">
 					<span class="login100-form-title p-b-26">WVP视频平台</span>
